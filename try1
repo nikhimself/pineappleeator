@@ -1,3 +1,4 @@
+while true do
 coroutine.resume(coroutine.create(function()
 while wait(.9) do
     game:GetService("ReplicatedStorage").MainEvent:FireServer("Boombox","6947054675")
@@ -20,3 +21,4 @@ game.RunService.RenderStepped:Connect(function()
         end
     end)
 end)
+end
