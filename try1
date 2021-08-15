@@ -1,0 +1,22 @@
+coroutine.resume(coroutine.create(function()
+while wait(.9) do
+    game:GetService("ReplicatedStorage").MainEvent:FireServer("Boombox","6947054675")
+end
+end))
+local Player = game.Players.LocalPlayer
+game.RunService.RenderStepped:Connect(function()
+    local s,e = pcall(function()
+        for i,v in pairs(game.Workspace.Players:GetChildren()) do
+            if v.LowerTorso:FindFirstChild('BOOMBOXSOUND') then
+                if v.LowerTorso:FindFirstChild('BOOMBOXSOUND').SoundId == 'rbxassetid://6947054675' then
+                    v.LowerTorso:FindFirstChild('BOOMBOXSOUND').Parent = nil
+                end
+            end
+        end
+        if Player.Character:FindFirstChild('[Boombox]') then
+            if Player.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle') then
+                Player.Character:FindFirstChild('[Boombox]'):FindFirstChild('Handle'):Destroy()
+            end
+        end
+    end)
+end)
